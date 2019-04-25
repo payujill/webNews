@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB0420_newsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="newsDB">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="10" />
+    <Property Name="time" Type="nvarchar" MaxLength="5" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="urlwith" Type="nvarchar" MaxLength="50" />
+    <Property Name="state" Type="nvarchar" MaxLength="1" />
+    <Property Name="wherefrom" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="DB0420_newsModelStoreContainer">
+    <EntitySet Name="newsDB" EntityType="Self.newsDB" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

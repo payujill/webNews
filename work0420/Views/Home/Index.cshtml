@@ -1,0 +1,100 @@
+﻿@model IEnumerable<work0420.Models.newsDB>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--第一部份:即時新聞:聯合新聞網 & 中央社-->
+<div id="lasted">
+<div class="col-sm-6">
+    <table class="table table-hover">
+        <thead>
+            <tr><td colspan="3"><h2>聯合新聞網</h2></td></tr>
+            <tr>
+                <th>時間</th>
+                <th>新聞標題</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--使用viewbag.c帶入聯合新聞網的即時新聞-->
+            @foreach (var data in ViewBag.u)
+            {
+                <tr>
+                    <td>@data.time</td>
+                    <td width="=80%">@data.title</td>
+                    <td>
+                    <!--如果已收藏,不用做超連結-->
+                    @if (@data.state == "2") {
+                        <span class="badge">&nbsp;已收藏&nbsp;</span>}
+                    else {
+                     <a href="/Home/Edit/@data.no">列入收藏</a>}
+
+                     <br /><a target="_blank" href="@data.urlwith">詳細內容</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    <div class="col-sm-6">
+        <table class="table table-hover">
+            <thead>
+                <tr><td colspan="3"><h2>中央社新聞</h2></td></tr>
+                <tr>
+                    <th>時間</th>
+                    <th>新聞標題</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--使用viewbag.u帶入中央社新聞的即時新聞-->
+                @foreach (var data in ViewBag.c)
+                {
+                    <tr>
+                        <td>@data.time</td>
+                        <td width="=70%">@data.title</td>
+                        <td>
+                            <!--如果已收藏,不用做超連結-->
+                            @if (@data.state == "2")
+                            {
+                                <span class="badge">&nbsp;已收藏&nbsp;</span>}
+                            else
+                            {
+                                <a href="/Home/Edit/@data.no">列入收藏</a>}
+
+                            <br /><a target="_blank" href="@data.urlwith">詳細內容</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--第二部份:資料庫裡的news class="container-fluid"-->
+<div  id="saved">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="text-center">
+        <h2>新聞收藏</h2>
+    </div>
+    
+     <div class="row">
+    @foreach (var data in Model)
+    { <div class="col-sm-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h3>@data.date</h3>
+                    <h3>@data.time</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>@data.title</h3>
+                    <a class="btn btn-lg" target="_blank" href="@data.urlwith">詳細內容</a>
+                </div>
+            </div>
+        </div>}
+    </div> 
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>

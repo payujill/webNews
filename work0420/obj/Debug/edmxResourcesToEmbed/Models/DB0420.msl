@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB0420_newsModelStoreContainer" CdmEntityContainer="DB0420_newsEntities">
+    <EntitySetMapping Name="newsDBs">
+      <EntityTypeMapping TypeName="DB0420_newsModel.newsDB">
+        <MappingFragment StoreEntitySet="newsDB">
+          <ScalarProperty Name="wherefrom" ColumnName="wherefrom" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="no" ColumnName="no" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="urlwith" ColumnName="urlwith" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
